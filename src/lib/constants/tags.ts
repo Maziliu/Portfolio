@@ -17,7 +17,7 @@ export const URLMap: Record<string, string> = {
 
 	Python: 'https://www.python.org',
 
-	'Automation Macro': 'https://en.wikipedia.org/wiki/Macro_(computer_science)',
+	Automation: 'https://en.wikipedia.org/wiki/Macro_(computer_science)',
 
 	JavaScript: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
 	MySQL: 'https://www.mysql.com',
