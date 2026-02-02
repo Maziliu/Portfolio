@@ -1,0 +1,82 @@
+[
+	{
+		"id": 1,
+		"title": "Dailies",
+		"description": "A personal Android app for managing schedules, tracking daily activities, and monitoring gacha stamina. Built with offline-first SQLite storage and LLM-powered schedule parsing, supporting both PDF and ICS file formats, with Jenkins based testing and Github Actions for automated releases.",
+		"links": [
+			{
+				"logo": "Github",
+				"link": "https://github.com/Maziliu/Dailies"
+			}
+		],
+		"tags": ["Dart", "Flutter", "SQLite", "Drift", "CI/CD", "Android", "LLM"]
+	},
+	{
+		"id": 2,
+		"title": "Undergraduate Academic Navigator",
+		"description": "A UX-first degree planner with a drag-and-drop interface, real-time prerequisite checking, and immediate feedback to help students build valid course plans quickly.",
+		"links": [
+			{
+				"logo": "Github",
+				"link": "https://github.com/alexchchen/undergraduate-advising-navigator"
+			},
+			{
+				"logo": "Youtube",
+				"link": "https://youtu.be/3QCafoYjgis"
+			},
+			{
+				"logo": "Website",
+				"link": "https://undergraduate-advising-navigator.vercel.app/"
+			}
+		],
+		"tags": ["TypeScript", "React", "TailwindCSS", "NextJS"]
+	},
+	{
+		"id": 3,
+		"title": "Epic Seven Auto Shop Refresher",
+		"description": "A background automation macro for Epic Seven that refreshes the in-game secret shop using ADB on emulators to streamline repetitive tasks.",
+		"links": [
+			{
+				"logo": "Github",
+				"link": "https://github.com/Maziliu/Epic-Seven-Auto-Shop-Refresher"
+			}
+		],
+		"tags": ["Python", "Automation Macro"]
+	},
+	{
+		"id": 4,
+		"title": "Occasio",
+		"description": "A web application for planning travel itineraries featuring an LLM-powered chatbot that gathers user context and automatically generates personalized plans. Users can invite others via email (no account required) with a dashboard for tracking RSVPs.",
+		"links": [
+			{
+				"logo": "Github",
+				"link": "https://github.com/MariemOuer/Full_stack_website"
+			}
+		],
+		"tags": ["JavaScript", "React", "MySQL", "Full Stack", "LLM"]
+	},
+	{
+		"id": 5,
+		"title": "Movie Theatre Website",
+		"description": "A movie booking website for browsing films, reserving seats, and receiving notifications about new releases, featuring three user roles: guest, registered users, and administrators.",
+		"links": [
+			{
+				"logo": "Github",
+				"link": "https://github.com/Maziliu/ENSF480TermProject"
+			}
+		],
+		"tags": ["JavaScript", "Java", "MySQL", "React", "SpringBoot", "Full Stack"]
+	},
+	{
+		"id": 6,
+		"title": "Museum Website",
+		"description": "A museum website for browsing artifacts with a dynamic search interface for fast, interactive discovery",
+		"links": [
+			{
+				"logo": "Github",
+				"link": "https://github.com/ENSF-300-F23/museum-project-l01-34"
+			}
+		],
+		"tags": ["Python", "HTMX", "Django", "AWS Amplify"]
+	}
+]

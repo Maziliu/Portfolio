@@ -1,0 +1,10 @@
+@import '../globals.css';
+
+@theme {
+	--color-bg-back: hsl(var(--bg-back));
+	--color-bg-middle: hsl(var(--bg-middle));
+	--color-bg-front: hsl(var(--bg-front));
+
+	--color-text: hsl(var(--text));
+	--color-text-muted: hsl(var(--text-muted));
+}
