@@ -4,25 +4,23 @@
 	import IconButton from '../IconButton.svelte';
 	import { getProjectImages, slugify } from '$lib/utils/projectImages';
 	import TechTag from './TechTag.svelte';
-	import { onDestroy, onMount } from 'svelte';
 
 	let { title, description, links, tags }: Project = $props();
-
 	const images: CarouselImage[] = $derived(getProjectImages(slugify(title)));
 
 	let isSM = $state(false);
 
-	function checkWidth() {
-		isSM = window.innerWidth >= 640;
-	}
+	$effect(() => {
+		function checkWidth() {
+			isSM = window.innerWidth >= 640;
+		}
 
-	onMount(() => {
 		checkWidth();
 		window.addEventListener('resize', checkWidth);
-	});
 
-	onDestroy(() => {
-		window.removeEventListener('resize', checkWidth);
+		return () => {
+			window.removeEventListener('resize', checkWidth);
+		};
 	});
 </script>
 
