@@ -8,3 +8,4 @@
 	--color-text: hsl(var(--text));
 	--color-text-muted: hsl(var(--text-muted));
 }
+@custom-variant dark (&:where(.dark, .dark *));

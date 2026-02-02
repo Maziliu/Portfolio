@@ -12,6 +12,8 @@ export const URLMap: Record<string, string> = {
 	React: 'https://react.dev',
 	TailwindCSS: 'https://tailwindcss.com',
 	NextJS: 'https://nextjs.org',
+	Flowbite: 'https://flowbite-svelte.com/',
+	Figma: 'https://www.figma.com',
 
 	Python: 'https://www.python.org',
 

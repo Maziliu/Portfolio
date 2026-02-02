@@ -3,19 +3,19 @@
 @import 'tailwindcss';
 
 :root {
-	--bg-back: 0 0% 0%;
-	--bg-middle: 0 0% 15%;
-	--bg-front: 0 60.8% 56.9%;
-	--text: 0 0% 95%;
-	--text-muted: 0 0% 70%;
-}
-
-html.light {
 	--bg-back: 0 0% 90%;
 	--bg-middle: 0 0% 97%;
 	--bg-front: 0 60.8% 60.9%;
 	--text: 0 0% 5%;
 	--text-muted: 0 0% 30%;
+}
+
+html.dark {
+	--bg-back: 0 0% 0%;
+	--bg-middle: 0 0% 15%;
+	--bg-front: 0 60.8% 56.9%;
+	--text: 0 0% 95%;
+	--text-muted: 0 0% 70%;
 }
 
 html {
@@ -25,3 +25,13 @@ html {
 * {
 	font-family: 'Outfit', sans-serif;
 }
+
+@theme {
+	--color-bg-back: hsl(var(--bg-back));
+	--color-bg-middle: hsl(var(--bg-middle));
+	--color-bg-front: hsl(var(--bg-front));
+
+	--color-text: hsl(var(--text));
+	--color-text-muted: hsl(var(--text-muted));
+}
+@custom-variant dark (&:where(.dark, .dark *));
