@@ -4,10 +4,26 @@
 	import IconButton from '../IconButton.svelte';
 	import { getProjectImages, slugify } from '$lib/utils/projectImages';
 	import TechTag from './TechTag.svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	let { title, description, links, tags }: Project = $props();
 
 	const images: CarouselImage[] = $derived(getProjectImages(slugify(title)));
+
+	let isSM = $state(false);
+
+	function checkWidth() {
+		isSM = window.innerWidth >= 640;
+	}
+
+	onMount(() => {
+		checkWidth();
+		window.addEventListener('resize', checkWidth);
+	});
+
+	onDestroy(() => {
+		window.removeEventListener('resize', checkWidth);
+	});
 </script>
 
 <div
@@ -24,7 +40,7 @@
 		</div>
 	{/if}
 
-	<div class="bg flex h-full flex-col justify-between gap-4 sm:flex-row sm:items-start">
+	<div class="bg flex h-full flex-col justify-between gap-4 sm:items-start">
 		<div class="flex h-full min-w-0 flex-col justify-between gap-2">
 			<div class="flex flex-col gap-2">
 				<h2 class="text-lg font-semibold tracking-tight sm:text-2xl">{title}</h2>
@@ -35,27 +51,40 @@
 					</p>
 				{/if}
 			</div>
+			<div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+				{#if tags?.length}
+					<div class="mt-2 flex flex-wrap gap-2">
+						{#each tags as tag (tag)}
+							<TechTag {tag} />
+						{/each}
+					</div>
+				{/if}
+				{#if links?.length}
+					<div
+						class="
+    flex shrink-0 flex-row items-center
+    gap-3 sm:order-last sm:col-end-1 sm:grid sm:grid-cols-2 sm:grid-rows-2 sm:gap-3
+  "
+					>
+						{#if links.length < 4 && isSM}
+							{#each Array(4 - links.length), i (i)}
+								<div></div>
+							{/each}
+						{/if}
 
-			{#if tags?.length}
-				<div class="mt-2 flex flex-wrap gap-2">
-					{#each tags as tag (tag)}
-						<TechTag {tag} />
-					{/each}
-				</div>
-			{/if}
-		</div>
-
-		{#if links?.length}
-			<div
-				class="flex shrink-0 flex-row flex-wrap items-center gap-3
-               sm:h-full sm:flex-col sm:items-end sm:justify-center"
-			>
-				{#each links as l (`${l.logo}-${l.link}`)}
-					{#if l.link}
-						<IconButton link={l.link} logo={`${l.logo.toLowerCase()}.svg`} width={30} height={30} />
-					{/if}
-				{/each}
+						{#each links as l (`${l.logo}-${l.link}`)}
+							{#if l.link}
+								<IconButton
+									link={l.link}
+									logo={`${l.logo.toLowerCase()}.svg`}
+									width={30}
+									height={30}
+								/>
+							{/if}
+						{/each}
+					</div>
+				{/if}
 			</div>
-		{/if}
+		</div>
 	</div>
 </div>
