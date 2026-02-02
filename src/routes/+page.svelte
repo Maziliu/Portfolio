@@ -3,7 +3,5 @@
 	import ProjectsSection from '$lib/components/projects/ProjectsSection.svelte';
 </script>
 
-<div class="flex flex-col p-4">
-	<ProjectsSection />
-	<AboutSection />
-</div>
+<AboutSection />
+<ProjectsSection />
