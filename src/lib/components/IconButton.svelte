@@ -18,6 +18,6 @@
 		{width}
 		{height}
 		style={`width:${width}px;height:${height}px`}
-		class={`transition-all hover:opacity-80 ${shouldInvert ? 'dark:invert' : ''}`}
+		class={`transition-all hover:opacity-50 ${shouldInvert ? 'dark:invert' : ''}`}
 	/>
 </a>
