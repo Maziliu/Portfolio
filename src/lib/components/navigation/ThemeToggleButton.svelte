@@ -27,7 +27,12 @@
 	});
 </script>
 
-<button type="button" aria-label="Toggle theme" on:click={toggleTheme} class="flex items-center">
+<button
+	type="button"
+	aria-label="Toggle theme"
+	on:click={toggleTheme}
+	class="flex cursor-pointer items-center hover:opacity-50"
+>
 	<i class="bi bi-moon-fill hidden text-blue-400 dark:inline"></i>
 
 	<i class="bi bi-sun-fill inline text-bg-front dark:hidden"></i>
