@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { theme } from '$lib/stores/theme';
 	import type { LinkWidget } from '$lib/types/project';
 
 	type Size = { width: number; height: number };
@@ -8,9 +7,8 @@
 
 	const isGithub = $derived(logo.toLowerCase().includes('github'));
 	const isWebsite = $derived(logo.toLowerCase().includes('website'));
-	const isDarkTheme = $derived($theme === 'dark');
 
-	const shouldInvert = $derived(isDarkTheme && (isGithub || isWebsite));
+	const shouldInvert = $derived(isGithub || isWebsite);
 </script>
 
 <a href={link} target="_blank" rel="external noopener noreferrer" class="shrink-0 object-contain">
@@ -20,6 +18,6 @@
 		{width}
 		{height}
 		style={`width:${width}px;height:${height}px`}
-		class={`transition-all hover:opacity-80 ${shouldInvert ? 'invert' : ''}`}
+		class={`transition-all hover:opacity-80 ${shouldInvert ? 'dark:invert' : ''}`}
 	/>
 </a>
