@@ -31,7 +31,7 @@
 	type="button"
 	aria-label="Toggle theme"
 	on:click={toggleTheme}
-	class="flex cursor-pointer items-center"
+	class="flex cursor-pointer items-center hover:opacity-50"
 >
 	<i class="bi bi-moon-fill hidden text-blue-400 dark:inline"></i>
 
