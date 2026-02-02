@@ -8,8 +8,8 @@
 
 <section
 	id="projects"
-	class="grid scroll-mt-24 auto-rows-fr grid-cols-1
-         gap-4 md:grid-cols-2 xl:grid-cols-3"
+	class="mt-(--header-h) grid
+         min-h-[calc(100svh-var(--header-h))] scroll-mt-(--header-h) auto-rows-fr grid-cols-1 gap-4 py-4 md:grid-cols-2 xl:grid-cols-3"
 >
 	{#each projects as project (project.id)}
 		<ProjectCard {...project} />
