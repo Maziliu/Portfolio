@@ -4,32 +4,33 @@
 	import IconButton from '../IconButton.svelte';
 	import { getProjectImages, slugify } from '$lib/utils/projectImages';
 	import TechTag from './TechTag.svelte';
-
+	import HoverArrow from './HoverArrow.svelte';
 	let { title, description, links, tags }: Project = $props();
 	const images: CarouselImage[] = $derived(getProjectImages(slugify(title)));
-
 	let isSM = $state(false);
-
 	$effect(() => {
 		function checkWidth() {
 			isSM = window.innerWidth >= 640;
 		}
-
 		checkWidth();
 		window.addEventListener('resize', checkWidth);
-
 		return () => {
 			window.removeEventListener('resize', checkWidth);
 		};
 	});
 </script>
 
-<div
-	class="group w-full rounded-3xl bg-bg-middle p-4 shadow-sm
+<a
+	class="flex-1"
+	href={`/projects/${title.replaceAll(' ', '')}`}
+	data-sveltekit-preload-data="hover"
+>
+	<div
+		class="group relative h-full w-full rounded-3xl bg-bg-middle p-4 shadow-sm
          ring-1 ring-white/5 transition-all
          duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-white/10 sm:p-5"
->
-	<a href={`/projects/${title.replaceAll(' ', '')}`} data-sveltekit-preload-data="hover">
+	>
+		<HoverArrow />
 		{#if images.length}
 			<div class="overflow-hidden rounded-2xl border border-white/10 bg-black/5">
 				<Carousel {images}>
@@ -38,18 +39,17 @@
 				</Carousel>
 			</div>
 		{/if}
-
 		<div class="bg flex h-full flex-col justify-between gap-4 sm:items-start">
 			<div class="flex h-full min-w-0 flex-col justify-between gap-2">
 				<div class="flex flex-col gap-2">
 					<h2 class="text-lg font-semibold tracking-tight sm:text-2xl">{title}</h2>
-
 					{#if description}
 						<p class="text-sm leading-relaxed text-text-muted sm:text-base">
 							{description}
 						</p>
 					{/if}
 				</div>
+
 				<div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
 					{#if tags?.length}
 						<div class="mt-2 flex flex-wrap gap-2">
@@ -70,8 +70,7 @@
 									<div></div>
 								{/each}
 							{/if}
-
-							{#each links as l (`${l.logo}-${l.link}`)}
+							{#each links as l, i (i)}
 								{#if l.link}
 									<IconButton
 										link={l.link}
@@ -86,5 +85,5 @@
 				</div>
 			</div>
 		</div>
-	</a>
-</div>
+	</div>
+</a>
