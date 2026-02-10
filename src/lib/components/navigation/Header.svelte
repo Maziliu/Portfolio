@@ -54,10 +54,12 @@
 	class="sticky top-0 z-50 w-full px-3
          py-2 text-2xl backdrop-blur sm:px-4 sm:py-3"
 >
-	<div class="flex shrink-0 flex-row items-center justify-end gap-4 sm:gap-4">
-		{#each TABS as tab, i (i)}
-			<Tab section={tab} />
-		{/each}
+	<div class="flex shrink-0 flex-row items-center justify-end gap-4">
+		<div class="flex w-full flex-row items-start gap-4">
+			{#each TABS as tab, i (i)}
+				<Tab section={tab} />
+			{/each}
+		</div>
 		<ThemeToggleButton />
 		<IconButton link="https://github.com/Maziliu" logo="github.svg" width={30} height={30} />
 	</div>
