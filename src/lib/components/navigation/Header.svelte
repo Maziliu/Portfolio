@@ -1,46 +1,68 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
+	import { browser } from '$app/environment';
 	import { activeSection } from '$lib/stores/section';
 	import ThemeToggleButton from './ThemeToggleButton.svelte';
 	import Tab from './Tab.svelte';
 	import IconButton from '../IconButton.svelte';
 
 	let headerRef: HTMLElement;
-
 	const TABS = ['about', 'projects'] as const;
 	let sections: HTMLElement[] = [];
+	let isHomePage = false;
 
 	function updateHeaderHeight() {
 		document.documentElement.style.setProperty('--header-h', `${headerRef.offsetHeight}px`);
 	}
 
-	function onScroll() {
-		const scrollPosition = window.scrollY + headerRef.offsetHeight + 1;
+	function initializeSections() {
+		if (browser && isHomePage) {
+			sections = TABS.map((id) => document.getElementById(id)).filter(
+				(element): element is HTMLElement => !!element
+			);
+			if (sections.length > 0) {
+				onScroll();
+			}
+		} else {
+			sections = [];
+		}
+	}
 
-		let current: (typeof TABS)[number] | null = null;
+	function onScroll() {
+		if (!isHomePage || sections.length === 0) return;
+
+		const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+		let current: (typeof TABS)[number] = TABS[0];
 
 		for (const section of sections) {
-			if (scrollPosition >= section.offsetTop / 2) {
+			const sectionTop = section.offsetTop;
+			const sectionBottom = sectionTop + section.offsetHeight;
+
+			if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
 				current = section.id as (typeof TABS)[number];
+				break;
 			}
 		}
 
-		if (current) {
-			activeSection.set(current);
-		}
+		activeSection.set(current);
 	}
+
+	afterNavigate(({ to }) => {
+		isHomePage = to?.url.pathname === '/';
+		initializeSections();
+	});
 
 	onMount(() => {
 		updateHeaderHeight();
 
-		sections = TABS.map((id) => document.getElementById(id)).filter(
-			(element): element is HTMLElement => !!element
-		);
+		// Check initial page
+		isHomePage = window.location.pathname === '/';
+		initializeSections();
 
 		window.addEventListener('scroll', onScroll, { passive: true });
 		window.addEventListener('resize', updateHeaderHeight);
-
-		onScroll();
 
 		return () => {
 			window.removeEventListener('scroll', onScroll);
