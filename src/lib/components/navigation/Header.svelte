@@ -20,7 +20,7 @@
 		let current: (typeof TABS)[number] | null = null;
 
 		for (const section of sections) {
-			if (scrollPosition >= section.offsetTop) {
+			if (scrollPosition >= section.offsetTop / 2) {
 				current = section.id as (typeof TABS)[number];
 			}
 		}
