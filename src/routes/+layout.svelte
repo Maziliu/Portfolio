@@ -13,7 +13,7 @@
 
 <div class="flex min-h-screen flex-col bg-bg-back text-text transition-all">
 	<Header />
-	<main class="px-4">
+	<main class="mb-auto px-4">
 		{@render children()}
 	</main>
 	<Footer />
