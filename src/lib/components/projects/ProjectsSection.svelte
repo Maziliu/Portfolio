@@ -11,7 +11,7 @@
 	class="mt-(--header-h) flex
          min-h-[calc(100svh-var(--header-h))] scroll-mt-(--header-h) auto-rows-fr flex-col gap-4 py-4 md:grid md:grid-cols-2 xl:grid-cols-3"
 >
-	{#each projects as project (project.id)}
+	{#each projects as project, i (i)}
 		<ProjectCard {...project} />
 	{/each}
 </section>
