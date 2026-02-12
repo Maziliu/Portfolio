@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { Footer, FooterIcon } from 'flowbite-svelte';
-	import { LinkedinSolid, GithubSolid } from 'flowbite-svelte-icons';
+	import {
+		LinkedinSolid,
+		GithubSolid,
+		EnvelopeSolid,
+		EnvelopeOpenSolid
+	} from 'flowbite-svelte-icons';
 </script>
 
 <Footer footerType="socialmedia">
@@ -15,6 +20,14 @@
 			</p>
 		</div>
 		<div class="mt-4 flex space-x-2 sm:mt-0 sm:justify-center rtl:space-x-reverse">
+			<FooterIcon href="mailto:martinliu906@gmail.com" target="_blank" class="group relative">
+				<EnvelopeSolid
+					class="h-7 w-7 text-gray-500 transition-opacity duration-100 group-hover:opacity-0 dark:text-gray-500"
+				/>
+				<EnvelopeOpenSolid
+					class="absolute inset-0 h-7 w-7 text-gray-900 opacity-0 transition-opacity duration-100 group-hover:opacity-100 dark:text-white"
+				/>
+			</FooterIcon>
 			<FooterIcon href="/">
 				<LinkedinSolid
 					class="h-7 w-7 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
