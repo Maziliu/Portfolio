@@ -28,12 +28,12 @@
 					class="absolute inset-0 h-7 w-7 text-gray-900 opacity-0 transition-opacity duration-100 group-hover:opacity-100 dark:text-white"
 				/>
 			</FooterIcon>
-			<FooterIcon href="/">
+			<FooterIcon href="https://www.linkedin.com/in/martin-liu-024766305/" target="_blank">
 				<LinkedinSolid
 					class="h-7 w-7 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
 				/>
 			</FooterIcon>
-			<FooterIcon href="https://github.com/Maziliu/Portfolio">
+			<FooterIcon href="https://github.com/Maziliu/Portfolio" target="_blank">
 				<GithubSolid
 					class="h-7 w-7 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
 				/>
