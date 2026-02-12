@@ -7,7 +7,6 @@
 
 <a
 	href={`/#${section}`}
-	on:click={() => activeSection.set(section)}
 	class="relative transition-opacity hover:opacity-50"
 	class:opacity-100={$activeSection === section}
 	class:opacity-60={$activeSection !== section}
