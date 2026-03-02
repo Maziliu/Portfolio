@@ -57,7 +57,6 @@
 	onMount(() => {
 		updateHeaderHeight();
 
-		// Check initial page
 		isHomePage = window.location.pathname === '/';
 		initializeSections();
 
